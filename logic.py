@@ -23,6 +23,8 @@ class Pokemon:
 
         self.hunger = 100
 
+        self.heal_count = 35
+
         self.last_training = datetime.now() - timedelta(days=1)
 
         Pokemon.pokemons[pokemon_trainer] = self
@@ -52,6 +54,8 @@ class Pokemon:
         return f"""Имя твоего покеомона: {self.name}
 Cила покемона: {self.power}
 Здоровье покемона: {self.hp}"""
+
+
 
     # Метод класса для получения картинки покемона
     def show_img(self):
@@ -114,7 +118,20 @@ class Fighter(Pokemon):
         return super().feed(feed_interval=10)
 
 
-# class *Какой то покемон*:
+# class Healer(Pokemon):
+#     """Подкласс Pokemon, представляющий покемона-лекаря."""
+#
+#     def heal_ally(self, ally):
+#         if isinstance(ally, Pokemon) and ally.hp < 200:
+#             healing_amount = randint(30, 60)
+#             ally.hp = min(200, ally.hp + healing_amount)
+#             return f"⚕️ Лекарь восстановил {healing_amount} HP союзнику {ally.name}!"
+#         else:
+#             return "⚠️ Союзник полностью здоров или не является покемоном."
+#
+#     def info(self):
+#         """Возвращает информацию о покемоне-лекаре."""
+#         return "У тебя покемон-лекарь \n\n" + super().info()
 
 
 wizard = Wizard("username1")
